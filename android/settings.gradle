@@ -1,0 +1,3 @@
+rootProject.name = 'chefready1_1'
+
+include ':app'
