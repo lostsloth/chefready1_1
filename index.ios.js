@@ -9,23 +9,33 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
-  View
+  View,
+  TouchableOpacity
 } from 'react-native';
+import fbsdk, { LoginManager }  from 'react-native-fbsdk'
 
 export default class chefready1_1 extends Component {
+  
+  _fbAuth (){
+    LoginManager.logInWithReadPermissions(['public_profile']).then(function(result){
+        if(result.isCancelled){
+          console.log('Login Cancelled');
+        }else {
+          console.log('Login success: ' + result.grantedPermissions);
+        }
+    }, function(error) {
+          console.log('An error occurred: ' + error);
+        })
+  }
+  
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.ios.js
-        </Text>
-        <Text style={styles.instructions}>
-          Press Cmd+R to reload,{'\n'}
-          Cmd+D or shake for dev menu
-        </Text>
+        <TouchableOpacity onPress={this._fbAuth}>
+          <Text>
+            Login with fakebook
+          </Text>
+          </TouchableOpacity>
       </View>
     );
   }
