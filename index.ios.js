@@ -17,11 +17,11 @@ import fbsdk, { LoginManager }  from 'react-native-fbsdk'
 export default class chefready1_1 extends Component {
   
   _fbAuth (){
-    LoginManager.logInWithReadPermissions(['public_profile']).then(function(result){
+    LoginManager.logInWithReadPermissions(['public_profile','email']).then(function(result){
         if(result.isCancelled){
           console.log('Login Cancelled');
         }else {
-          console.log('Login success: ' + result.grantedPermissions);
+          console.log('Login success: ' + JSON.stringify(result) );
         }
     }, function(error) {
           console.log('An error occurred: ' + error);
