@@ -64,6 +64,7 @@ export const Root = StackNavigator({
     screen: SettingsStack,
   },
 }, {
-  mode: 'modal',
-  headerMode: 'none',
-});
+    mode: 'modal',
+    headerMode: 'none',
+  });
+

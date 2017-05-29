@@ -1,17 +1,41 @@
 import React, { Component } from 'react';
-import { View,Text,StyleSheet,TouchableHighlight, } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { Navigator } from 'react-native-deprecated-custom-components';
-import { Root, Tabs } from './config/router';
-import { users } from './config/data';
-import Login from './login';
-
+import FacebookLoginScreen from './login';
+import Homepage from './home';
 
 class App extends Component {
 
   render() {
     return (
-      <Login />
+      <Navigator
+        initialRoute={{ id: 'FirstScreen', name: 'Index' }}
+        renderScene={this.renderScene.bind(this)}
+        configureScene={(route) => {
+          if (route.sceneConfig) {
+            return route.sceneConfig;
+          }
+          return Navigator.SceneConfigs.FloatFromRight;
+        }} />
     );
+  }
+
+  renderScene(route, navigator) {
+    var routeId = route.id;
+    if (routeId === 'FirstScreen') {
+      //console.log('first scene');
+      return (
+        <FacebookLoginScreen
+          navigator={navigator} />
+      );
+    }
+    if (routeId === 'Homepage') {
+      //console.log('second scene');
+      return (
+        <Homepage
+          navigator={navigator} />
+      );
+    }
   }
 }
 

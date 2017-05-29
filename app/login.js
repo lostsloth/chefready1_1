@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import fbsdk, { LoginManager }  from 'react-native-fbsdk'
-import { View,Text,StyleSheet,TouchableHighlight, } from 'react-native';
-
+import fbsdk, { LoginManager } from 'react-native-fbsdk'
+import { View, Text, StyleSheet, TouchableHighlight, } from 'react-native';
 const FBSDK = require('react-native-fbsdk');
 const {
-  LoginButton,
-  ShareDialog,
+    LoginButton,
+    ShareDialog,
+    AccessToken,
+    Email
 } = FBSDK;
 
 class Login extends Component {
@@ -19,6 +20,21 @@ class Login extends Component {
         this.state = {
             shareLinkContent: shareLinkContent,
         };
+    }
+
+    goToHomePage(accessToken) {
+        console.log('goToHomePage()');
+        this.props.navigator.replace({ id: 'Homepage' });
+    }
+
+    componentWillMount() {
+        console.log('componentWillMount: ' + AccessToken)
+        AccessToken.getCurrentAccessToken().then(
+            (data) => {
+                if (data)
+                    this.goToHomePage();
+            }
+        )
     }
 
     shareLinkWithShareDialog() {
@@ -46,43 +62,49 @@ class Login extends Component {
 
     render() {
 
-    return (
-        <View style={styles.container}> 
-            <LoginButton publishPermissions={['publish_actions']}
-                onLoginFinished={
-                    (error, result) => {
-                        (error) => {
-                            alert('Login failed with error: ' + result.error);
-                        };
-                        if (result.isCancelled) {
-                            alert('Login was cancelled');
-                        } else {
-                            alert('Login was success');
+        return (
+            <View style={styles.container}>
+                <LoginButton
+                    publishPermissions={['publish_actions']}
+                    readPermissions={['public_profile']}
+                    onLoginFinished={
+                        (error, result) => {
+                            if (error) {
+                                console.log('login has error: ', result.error)
+                            } else if (result.isCancelled) {
+                                console.log('login is cancelled.')
+                            } else {
+                                AccessToken.getCurrentAccessToken().then(
+                                    (data) => {
+                                        this.goToHomePage();
+                                    }
+                                )
+
+                            }
                         }
                     }
-                }
-                onLogoutFinished={() => alert('User logged out')}
+                    onLogoutFinished={() => alert('User logged out')}
                 />
-            <TouchableHighlight style={styles.share}
-                onPress={this.shareLinkWithShareDialog.bind(this)}>
-                <Text style={styles.shareText}>Share link with ShareDialog</Text>
-            </TouchableHighlight>
-        </View>
-    );
-  }
+                <TouchableHighlight style={styles.share}
+                    onPress={this.shareLinkWithShareDialog.bind(this)}>
+                    <Text style={styles.shareText}>Share link with ShareDialog</Text>
+                </TouchableHighlight>
+            </View>
+        );
+    }
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  shareText: {
-    fontSize: 20,
-    margin: 10,
-  },
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#F5FCFF',
+    },
+    shareText: {
+        fontSize: 20,
+        margin: 10,
+    },
 });
 
 export default Login;

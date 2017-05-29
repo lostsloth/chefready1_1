@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
-import { View,Text,StyleSheet,TouchableHighlight, } from 'react-native';
+import { View, Text, StyleSheet, TouchableHighlight, } from 'react-native';
+import { Root } from './config/router';
 
 class Home extends Component {
 
-render(){
-    return(
-        <View style={styles.container}><Text>Home View</Text></View>
+  render() {
+    return (
+      <Root />
     );
-}
+  }
 
 }
 
