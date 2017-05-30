@@ -15,6 +15,7 @@ class Me extends Component {
           imageSrc={{ uri: this.props.picture.large }}
           featured
           title={`${this.props.name.first.toUpperCase()} ${this.props.name.last.toUpperCase()}`}
+          caption={'<-- Swipe through up to 3 uploaded photos -->'}
         />
 
         <Button

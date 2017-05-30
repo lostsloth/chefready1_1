@@ -12,8 +12,8 @@ class EventDetail extends Component {
                     imageSrc={{ uri: picture.large }}
                     featured
                     title={`${name.first.toUpperCase()} ${name.last.toUpperCase()}`}
+                    caption={'<-- Swipe through photos of the location --> '}
                 />
-
                 <List>
                     <ListItem
                         title="bio"

@@ -25,8 +25,6 @@ class Dash extends Component {
         <Text>(average star rating displayed in 5 stars)</Text>
         <Text>(recommendations from completed events)</Text>
         <Text></Text>
-
-
       </View>
 
     );

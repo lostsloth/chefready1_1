@@ -6,6 +6,9 @@ import Settings from '../screens/Settings';
 import EventDetail from '../screens/EventDetail';
 import Me from '../screens/Me';
 import EventList from '../screens/EventList';
+import Notifications from '../screens/Notifications';
+import Menus from '../screens/Menus';
+import Photos from '../screens/Photos';
 
 export const EventListStack = StackNavigator({
   EventList: {
@@ -22,14 +25,39 @@ export const EventListStack = StackNavigator({
   },
 });
 
-export const SettingsStack = StackNavigator({
-  Settings: {
-    screen: Settings,
+export const MeStack = StackNavigator({
+  Me: {
+    screen: Me,
     navigationOptions: {
-      title: 'Settings',
+      title: 'Me',
     },
   },
+  Settings: {
+    screen: Settings,
+    navigationOptions: ({ navigation }) => ({
+      title: 'Settings',
+    }),
+  },
+  Notifications: {
+    screen: Notifications,
+    navigationOptions: ({ navigation }) => ({
+      title: 'Notifications',
+    }),
+  },
+  Menus: {
+    screen: Menus,
+    navigationOptions: ({ navigation }) => ({
+      title: 'Menus',
+    }),
+  },
+  Photos: {
+    screen: Photos,
+    navigationOptions: ({ navigation }) => ({
+      title: 'Photos',
+    }),
+  },
 });
+
 
 export const DashboardStack = StackNavigator({
   Dashboard: {
@@ -40,6 +68,7 @@ export const DashboardStack = StackNavigator({
   },
 });
 
+/* These are the three icons along the bottom of the main app pages */
 export const Tabs = TabNavigator({
   Dash: {
     screen: DashboardStack,
@@ -56,7 +85,7 @@ export const Tabs = TabNavigator({
     },
   },
   Me: {
-    screen: Me,
+    screen: MeStack,
     navigationOptions: {
       tabBarLabel: 'My Details',
       tabBarIcon: ({ tintColor }) => <Icon name="account-circle" size={35} color={tintColor} />
@@ -67,9 +96,6 @@ export const Tabs = TabNavigator({
 export const Root = StackNavigator({
   Tabs: {
     screen: Tabs,
-  },
-  Settings: {
-    screen: SettingsStack,
   },
 }, {
     mode: 'modal',
