@@ -85,7 +85,6 @@ class Login extends Component {
                                 AccessToken.getCurrentAccessToken().then((data) => {
                                     let accessToken = data.accessToken
 
-
                                     const responseInfoCallback = (error, result) => {
                                         if (error) {
                                             console.log(error)
@@ -94,6 +93,7 @@ class Login extends Component {
                                             console.log(result)
                                         }
                                     }
+
                                     const infoRequest = new GraphRequest(
                                         '/me',
                                         {
