@@ -11,16 +11,7 @@ class Settings extends Component {
             title="Notifications"
           />
           <ListItem
-            title="Profile"
-          />
-          <ListItem
-            title="Password"
-          />
-        </List>
-        <List>
-          <ListItem
-            title="Sign Out"
-            rightIcon={{ name: 'cancel' }}
+            title="Menus"
           />
         </List>
       </ScrollView>

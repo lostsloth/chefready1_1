@@ -11,7 +11,9 @@ export const me = {
     "state": "new hampshire",
     "postcode": 30411
   },
-  "email": "lance.thomas@example.com",
+  "bio": "This is my bio bro... Im trying to make it a few lines long",
+  "email": "l.thomas@example.com",
+  "location": "Boulder, CO",
   "login": {
     "username": "organicmouse687",
     "password": "frodo1",
@@ -29,9 +31,9 @@ export const me = {
     "value": "408-64-0336"
   },
   "picture": {
-    "large": "https://randomuser.me/api/portraits/men/2.jpg",
-    "medium": "https://randomuser.me/api/portraits/med/men/2.jpg",
-    "thumbnail": "https://randomuser.me/api/portraits/thumb/men/2.jpg"
+    "large": "https://randomuser.me/api/portraits/men/13.jpg",
+    "medium": "https://randomuser.me/api/portraits/med/men/13.jpg",
+    "thumbnail": "https://randomuser.me/api/portraits/thumb/men/13.jpg"
   },
   "nat": "US"
 };
@@ -1488,7 +1490,7 @@ export const events = [
     "name": {
       "title": "miss",
       "first": "Davis Phinney Foundation",
-      "last": ""
+      "last": "Lily Roux"
     },
     "location": {
       "street": "9378 montée saint-barthélémy",

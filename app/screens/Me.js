@@ -12,10 +12,9 @@ class Me extends Component {
     return (
       <ScrollView>
         <Tile
-          imageSrc={{ uri: this.props.picture.large}}
+          imageSrc={{ uri: this.props.picture.large }}
           featured
           title={`${this.props.name.first.toUpperCase()} ${this.props.name.last.toUpperCase()}`}
-          caption={this.props.email}
         />
 
         <Button
@@ -26,34 +25,23 @@ class Me extends Component {
 
         <List>
           <ListItem
-            title="Email"
+            title="bio"
+            rightTitle={this.props.bio}
+            hideChevron
+          />
+          <ListItem
+            title="email"
             rightTitle={this.props.email}
             hideChevron
           />
           <ListItem
-            title="Phone"
+            title="phone"
             rightTitle={this.props.phone}
             hideChevron
           />
-        </List>
-
-        <List>
           <ListItem
-            title="Username"
-            rightTitle={this.props.login.username}
-            hideChevron
-          />
-        </List>
-
-        <List>
-          <ListItem
-            title="Birthday"
-            rightTitle={this.props.dob}
-            hideChevron
-          />
-          <ListItem
-            title="City"
-            rightTitle={this.props.location.city}
+            title="location"
+            rightTitle={this.props.location}
             hideChevron
           />
         </List>

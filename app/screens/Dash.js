@@ -5,24 +5,30 @@ import {
   StyleSheet,
   Button,
   TouchableHighlight,
+  ScrollView
 } from 'react-native';
-import { FBLoginManager } from 'react-native-facebook-login';
-const FBSDK = require('react-native-fbsdk');
-const {
-  LoginButton,
-  ShareDialog,
-  AccessToken,
-} = FBSDK;
-import FacebookLoginScreen from '../login';
+import { List, ListItem, Tile } from 'react-native-elements'
 
 class Dash extends Component {
 
   render() {
     return (
       <View style={styles.container}>
-        <Text>Decide How this page should work. Once user is authenticated auto-redirection happens to Dashboard Stack.</Text>
+        <Text>I. Notifications</Text>
+        <Text>(most recent top 5 events)</Text>
+        <Text></Text>
+        <Text>II. Requests from event coordinator</Text>
+        <Text>(accept request and event disappears from this list)</Text>
+        <Text>(event will appear at the top of the event list)</Text>
+        <Text></Text>
+        <Text>III. Star Ratings</Text>
+        <Text>(average star rating displayed in 5 stars)</Text>
+        <Text>(recommendations from completed events)</Text>
+        <Text></Text>
+
 
       </View>
+
     );
   }
 }

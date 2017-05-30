@@ -2,9 +2,8 @@ import React from 'react';
 import { TabNavigator, StackNavigator } from 'react-navigation';
 import { Icon } from 'react-native-elements';
 import Dash from '../screens/Dash';
-import Feed from '../screens/Feed';
 import Settings from '../screens/Settings';
-import UserDetail from '../screens/UserDetail';
+import EventDetail from '../screens/EventDetail';
 import Me from '../screens/Me';
 import EventList from '../screens/EventList';
 
@@ -16,7 +15,7 @@ export const EventListStack = StackNavigator({
     },
   },
   Details: {
-    screen: UserDetail,
+    screen: EventDetail,
     navigationOptions: ({ navigation }) => ({
       title: `${navigation.state.params.name.first.toUpperCase()} ${navigation.state.params.name.last.toUpperCase()}`,
     }),

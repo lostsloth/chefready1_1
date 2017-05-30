@@ -9,42 +9,35 @@ class UserDetail extends Component {
     return (
       <ScrollView>
         <Tile
-          imageSrc={{ uri: picture.large}}
+          imageSrc={{ uri: picture.large }}
           featured
           title={`${name.first.toUpperCase()} ${name.last.toUpperCase()}`}
-          caption={email}
         />
 
         <List>
           <ListItem
-            title="Email"
+            title="bio"
+            rightTitle={'We are non-profit the provides this awesome service for the elderly who are not grumpy...'}
+            hideChevron
+          />
+          <ListItem
+            title="contact"
+            rightTitle={'Johnny Johnstone'}
+            hideChevron
+          />
+          <ListItem
+            title="email"
             rightTitle={email}
             hideChevron
           />
           <ListItem
-            title="Phone"
+            title="phone"
             rightTitle={phone}
             hideChevron
           />
-        </List>
-
-        <List>
           <ListItem
-            title="Username"
-            rightTitle={login.username}
-            hideChevron
-          />
-        </List>
-
-        <List>
-          <ListItem
-            title="Birthday"
-            rightTitle={dob}
-            hideChevron
-          />
-          <ListItem
-            title="City"
-            rightTitle={location.city}
+            title="location"
+            rightTitle={location.city + ', ' + location.state}
             hideChevron
           />
         </List>
