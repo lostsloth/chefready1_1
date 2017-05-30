@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, TouchableHighlight, } from 'react-native';
 import { Root } from './config/router';
+import Login from './login';
 
 class Home extends Component {
 
@@ -9,9 +10,7 @@ class Home extends Component {
       <Root />
     );
   }
-
 }
-
 
 const styles = StyleSheet.create({
   container: {
