@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import { StyleSheet } from 'react-native';
 import { Navigator } from 'react-native-deprecated-custom-components';
-import FacebookLoginScreen from './login';
-import Homepage from './home';
+import LoginScreen from './login';
+import HomeScreen from './home';
 
 class App extends Component {
 
   render() {
     return (
       <Navigator
-        initialRoute={{ id: 'FirstScreen', name: 'Index' }}
+        initialRoute={{ id: 'LoginScreen', name: 'Index' }}
         renderScene={this.renderScene.bind(this)}
         configureScene={(route) => {
           if (route.sceneConfig) {
@@ -22,17 +22,15 @@ class App extends Component {
 
   renderScene(route, navigator) {
     var routeId = route.id;
-    if (routeId === 'FirstScreen') {
-      //console.log('first scene');
+    if (routeId === 'LoginScreen') {
       return (
-        <FacebookLoginScreen
+        <LoginScreen
           navigator={navigator} />
       );
     }
     if (routeId === 'Homepage') {
-      //console.log('second scene');
       return (
-        <Homepage
+        <HomeScreen
           navigator={navigator} />
       );
     }

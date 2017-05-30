@@ -33,16 +33,16 @@ class Login extends Component {
         console.log('goToLoginPage()');
         this.props.navigator.replace({ id: 'FacebookLoginScreen' });
     }
-    /*    componentWillMount() {
-            console.log('componentWillMount: ' + AccessToken)
-            AccessToken.getCurrentAccessToken().then(
-                (data) => {
-                    if (data)
-                        this.goToHomePage();
-                }
-            )
-        }
-    */
+
+    /*componentWillMount() {
+        console.log('componentWillMount: ' + AccessToken)
+        AccessToken.getCurrentAccessToken().then(
+            (data) => {
+                //if (data)
+                //this.goToHomePage();
+            }
+        )
+    }*/
 
     shareLinkWithShareDialog() {
         var tmp = this;

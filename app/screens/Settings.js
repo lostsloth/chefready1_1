@@ -1,28 +1,36 @@
 import React, { Component } from 'react';
 import { ScrollView } from 'react-native';
-import { List, ListItem } from 'react-native-elements';
+import { List, ListItem, Button } from 'react-native-elements';
 
 class Settings extends Component {
+  handleNotificationsPress = () => {
+    this.props.navigation.navigate('Notifications');
+  };
+  handleMenusPress = () => {
+    this.props.navigation.navigate('Menus');
+  };
+  handlePhotosPress = () => {
+    this.props.navigation.navigate('Photos');
+  };
+
   render() {
     return (
       <ScrollView>
-        <List>
-          <ListItem
-            title="Notifications"
-          />
-          <ListItem
-            title="Profile"
-          />
-          <ListItem
-            title="Password"
-          />
-        </List>
-        <List>
-          <ListItem
-            title="Sign Out"
-            rightIcon={{ name: 'cancel' }}
-          />
-        </List>
+        <Button
+          title="Notifications"
+          buttonStyle={{ marginTop: 20 }}
+          onPress={this.handleNotificationsPress}
+        />
+        <Button
+          title="Menus"
+          buttonStyle={{ marginTop: 10 }}
+          onPress={this.handleMenusPress}
+        />
+        <Button
+          title="Photos"
+          buttonStyle={{ marginTop: 10 }}
+          onPress={this.handlePhotosPress}
+        />
       </ScrollView>
     );
   }
