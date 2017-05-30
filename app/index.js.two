@@ -1,0 +1,14 @@
+import React, { Component } from 'react';
+import { Text } from 'react-native';
+import { StackNavigator } from 'react-navigation';
+import Login from './login'
+var Profile = require('./profile.js');
+
+export const App = StackNavigator({
+    Login: { screen: Login },
+    Profile: { screen: Profile },
+}, {
+        headerMode: 'screen',
+    });
+
+export default App;
